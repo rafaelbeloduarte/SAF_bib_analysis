@@ -1,0 +1,1178 @@
+%% 
+%% Copyright 2007-2020 Elsevier Ltd
+%% 
+%% This file is part of the 'Elsarticle Bundle'.
+%% ---------------------------------------------
+%% 
+%% It may be distributed under the conditions of the LaTeX Project Public
+%% License, either version 1.2 of this license or (at your option) any
+%% later version.  The latest version of this license is in
+%%    http://www.latex-project.org/lppl.txt
+%% and version 1.2 or later is part of all distributions of LaTeX
+%% version 1999/12/01 or later.
+%% 
+%% The list of all files belonging to the 'Elsarticle Bundle' is
+%% given in the file `manifest.txt'.
+%% 
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%% 
+%%
+%% $Id: elsarticle-template-num.tex 190 2020-11-23 11:12:32Z rishi $
+%%
+%%
+%% \documentclass[preprint,10pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+\documentclass[preprint,review,times,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+\newcommand{\abbreviations}[1]{%
+  \nonumnote{\textit{Abbreviations:\enspace}#1}}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+%% The amssymb package provides various useful mathematical symbols
+%% \usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{url}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{siunitx}
+% \usepackage[nointegrals]{wasysym}
+% \usepackage{cancel}
+% for writing reactions under a separated 
+% numbering scheme from equation environment
+\usepackage[version=4]{mhchem}
+% \usepackage{chemmacros}
+% \renewcommand\reactionautorefname{Reaction}
+% \chemsetup{
+%	formula=mhchem,
+%	reactions/tag-open=(R,
+%	reactions/tag-close=),
+%}
+\usepackage{booktabs}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+\usepackage{float}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\-\do-}
+\def\UrlBreaks{\do\/\do-}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+\usepackage{lineno}
+
+% \usepackage{pdfpages}
+
+\journal{Renewable and Sustainable Energy Reviews}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \affiliation{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%% \fntext[label3]{}
+
+\title{A bibliometric analysis on sustainable aviation fuels: core technologies, challenges and trends}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+\author[label1]{Rafael Belo Duarte\corref{cor1}}
+\ead{duarterafaelbelo@gmail.com}
+\author[label2]{Gabriela de França Lopes}
+\author[label1]{João Lourenço Castagnari Willimann Pimenta}
+\author[label1]{Luiz Mario de Matos Jorge}
+
+\affiliation[label1]{organization={Chemical Engineering Department, Maringá State University},%Department and Organization
+            addressline={Av. Colombo, 5790}, 
+            city={Maringá},
+            postcode={87020-900}, 
+            state={Paraná},
+            country={Brazil}}
+\affiliation[label2]{organization={Geo Biogás \& Tech},%Department and Organization
+            addressline={1001 Juscelino Kubitscheck Avenue}, 
+            city={Londrina},
+            postcode={86020-000}, 
+            state={Paraná},
+            country={Brazil}}
+
+\cortext[cor1]{Corresponding author at: Av. Colombo, 5790, Bloco D90, Maringa - PR, 87020-900, Brazil}
+
+\abbreviations{
+A.F., alternative fuels;
+AJF, alternative jet fuel;
+ATJ, Alcohol-to-jet fuel;
+CORSIA, Carbon Offsetting and Reduction Scheme for International Aviation; 
+DCO2, decarboxylation;
+FTS, Fischer-Tropsch Synthesis;
+HEFA, Hydroprocessed esters and fatty acids;
+ICAO, International Civil Aviation Organization;
+LC, Local citations;
+LCA, Life cycle assessment;
+SAF, Sustainable Aviation Fuel;
+}
+
+<<echo=FALSE,cache=FALSE>>=
+library(knitr)
+options(scipen=1, digits=2)
+knitr::opts_chunk$set(echo=TRUE, cache=TRUE, tidy=TRUE, tidy.opts=list(width.cutoff=20))
+knitr::read_chunk('bib_analysis.R')
+@
+
+<<create_word_cloud, include=FALSE, warning=FALSE>>=
+<<bib_analysis_results>>
+<<filtered_terms>>
+<<word_cloud>>
+@
+
+<<run_summary, echo=FALSE, results='hide'>>=
+<<summary>>
+@
+
+<<run_slice_2012_2022, include=FALSE>>=
+<<slice_2012_2022>>
+@
+
+\begin{abstract}
+%% Text of abstract
+International initiatives such as the Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA) have set goals for the complete decarbonization of international aviation in this century. This motivated increasing numbers of Sustainable Aviation Fuel (SAF) research projects. This paper provides an overview on SAF research to point one to its foundations and, possibly, the future. Data from the Web of Science database was collected and investigated. Important papers, cooperation networks, textual, productivity and trends analysis is provided. The most productive countries are in the global north, led by the United States and China. Big developing nations such as India and Brazil need to improve. The future of a sustainable aviation sector is heading in the direction of replacement of conventional jet fuel by synthetic hydrocarbon fuels by the end of the century, but there are still doubts about its viability both from the environmental and practical aspects, as there are concerns about feedstock availability and life cycle emissions. Longer term prospects are for the development of more efficient aircraft designed for renewables and non-hydrocarbon energy sources.
+\end{abstract}
+
+%%Graphical abstract
+\begin{graphicalabstract}
+\includegraphics[width=\linewidth]{figure/graphical_abstract.png}
+\end{graphicalabstract}
+
+%%Research highlights
+\begin{highlights}
+\item A bibliometric analysis was conducted on all SAF research of the past 30 years;
+\item Recent international agreements caused a boom in sustainable aviation fuel research;
+\item Core SAF technologies are FTS, ATJ, HEFA and pyrolysis;
+\item Regional feedstock agnostic biorefineries are promising.
+\end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+saf \sep sustainable aviation fuel \sep bibliometric analysis
+
+Word count: 6365.
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+%% main text
+\section{Introduction}
+\label{introduction}
+
+Because of the finite fossil fuel sources and the impracticality of replacing liquid chemical fuels for alternatives such as batteries or hydrogen, especially for the aviation sector, technologies for the production of synthetic liquid fuels are required. However far the exhaustion of fossil fuel sources is, it is prudent to have such alternatives ready to deploy. For this reason, governments, the private sector and the scientific community have been trying to solve this question for the past two decades at least.
+
+The aviation sector is particularly dependent on liquid hydrocarbons. Aircraft are built to last many decades, so there will be a need for drop-in fuels, that is, fuels that can be used in current aircraft without any need for modifications. Another reason is that aircraft must be light, ruling out current battery technology.
+
+The production of synthetic fuels is an energy intensive process and only makes sense in a mixed or fully renewable grid \cite{barke_are_2022}. Otherwise, carbon accumulation in the atmosphere would be greater for SAF plus fossil energy than in a pure fossil energy sector. Another concern is with the availability of green hydrogen for some processes such as hydrodeoxygenation of oils and fatty acids \cite{alonso_catalytic_2010} as most of current hydrogen is supplied from natural gas reforming. In this way, \ce{H2} producing SAF routes can be merged with \ce{H2} consuming ones to reduce environmental impacts \cite{alonso_catalytic_2010}.
+
+The most mentioned SAF production processes are: (1) biomass biodigestion to produce biogas (\ce{CO2 + CH4}), which is reformed to syn-gas; or biomass direct gasification (partial combustion) to syn-gas, that is then fed to a Fischer-Tropsch Synthesis reactor (FTS) to produce aliphatic and branched hydrocarbons; (2) alcohol-to-jet (ATJ) is another promising technology, it puts alcohols through a oligomerization process to produce hydrocarbons \cite{wang_bio-jet_2016}. The advantage of ATJ is that it can mobilize the already developed ethanol production plants, which have successfully operated for many decades in countries such as Brazil; (3) the third main route for hydrocarbon production from biomass is the hydroprocessing of esters and fatty acids (HEFA), which processes animal fats and vegetable oils in high temperature and hydrogen pressure to dehydrate and hydrogenate the oils into a deoxygenated mixture similar in nature to crude oil.
+
+Bibliometric analysis is a tool for mapping a research field. It can reveal the social structure, most prolific authors, important topics, fundamental documents as well as trends. A good methodology for it is presented by Aria and Cuccurullo \cite{aria_bibliometrix_2017} along with software to facilitate the workflow. No publications were found on the bibliometric analysis of SAF specifically. A recent paper by Yuan et al. \cite{yuan_research_2022} analyzed trends in bioenergy research. The authors identified liquid biofuels and biogas upgrading as the most important bioenergy applications, highlighting raw material pretreatment and catalyst preparation as crucial technologies for the field.
+
+In this context the paper's objective is to produce a thorough bibliometric analysis of the available literature so new SAF researchers can orient themselves. Such analysis is important to avoid already explored paths, hint at promising ones and it can be useful for those desiring to conduct a literature review. A statistical analysis of the bibliometric space can point researchers in the direction of fundamental literature that is not always evident in a superficial unoriented search. A literature review based on bibliometric analysis is also less likely to be biased by an author's personal preference because of its statistical nature. Nevertheless, one must try to avoid inserting bias into the research question, this is why this paper is founded on a very generic search query.
+
+\section{Methods}
+\label{methods}
+
+This paper is based on a systematic methodology published by Aria and Cuccurullo \cite{aria_bibliometrix_2017} to be used with the R software environment and a package developed by the same authors named ``bibliometrix''. R is a versatile tool that can provide way beyond statistical calculations, it is a full fledged computer language that can even generate automatic reports, such as this paper, written using the R ``knitr'' package in conjunction with \LaTeX. All code used here was licensed under the GNU General Public License Version 3 and is provided as a supplementary material. One hopes it to be helpful in future research.
+
+\subsection{Data collection and research query}
+\label{method_data_collection}
+
+The complete dataset regarding Sustainable Aviation Fuels was collected from the Web of Science platform using the query ``sustainable aviation fuel OR aviation biofuel OR aviation bio fuel OR bio-jet fuel OR bio jet fuel OR bio-aviation fuel OR bio aviation fuel (Topic)''. No time span restriction was set; this was done to get the whole historical timeline.
+
+\subsection{Author name disambiguation}
+\label{method_AND}
+
+In order to have a more accurate author count as well as better collaboration networks, it is necessary to perform author name disambiguation, in other words, to identify authors that written their names in different ways (synonyms) as well as different authors with the same name (homonyms). The R package ``refsplitr'' by ref. \cite{auriel_fournier_refsplitr_2020} was used for this purpose via the script named ``AND.R'' provided in the supplementary material. It automatically disambiguates names and puts the ones it can not resolve into a list for manual review, which was done by looking at authors' affiliations, list of coauthors, Orcid IDs and e-mail addresses. The disambiguated list of authors synonyms and homonyms was fed into a second script named ``recreate\_ANDED\_DB.py'', written in python to replace the names in the WOS dataset, which was then used as input for script ``bib\_analysis.R'' for generating most of the figures and tables presented here.
+
+\subsection{Textual analysis}
+\label{method_textual_analysis}
+
+Textual analysis is the study of the words and expressions frequently used by the authors. The objective is to uncover the most relevant terms and how they relate. To improve graphical visualization, a list of common words that provide no information, and a list of synonyms were used to filter and group the terms. The lists were created by iteratively visualizing keyword networks and manually grouping terms at each run. Removed terms are strings that were judged to carry little information like: 2, assessment, use, analysis, performance, alternative, green, process and  environmental; as one assumes that the research query ``sustainable aviation fuels'' is green, involves alternative fuels and good environmental practices.
+
+The generation of a synonym list is also important. Otherwise frequent terms conceal less frequent --- but not less important --- ones. The synonyms list include keywords like ``sustainable aviation fuel'', also written as ``SAF''; and ``alternative fuels'' which was grouped into ``biofuels'', ``bio-fuels'', ``biofuel'', ``bio-fuel'', ``bio-oil'', ``advanced biofuels'' and referred in the figures as ``a.f.''. The complete lists are not shown here for brevity but are provided in the file ``bib\_analysis.R'' of the supplementary material under the variables named ``removed\_terms'' and ``synonyms\_list''.
+
+\section{Results and Discussion}
+\label{results}
+
+\subsection{Overview}
+\label{overview}
+
+Table \ref{tab:main_info} shows the main information about the data. The query returned \Sexpr{sum(results$Documents)} documents from \Sexpr{length(results$Sources)} different sources on April 26, 2023, of which \Sexpr{n_articles} are articles and \Sexpr{n_reviews} are reviews. Most of the research is collaborative, only \Sexpr{results$AuSingleAuthoredArt} documents have a single author, the average number of authors per document is \num{\Sexpr{mean(results$nAUperPaper)}} and the most common is \Sexpr{AUperPaper_mode}. There is also a considerable number of international collaborations: \num{\Sexpr{results$IntColl}}\% of total publications.
+
+<<show_main_info_table, echo=FALSE, warning=FALSE>>=
+<<main_info_table>>
+@
+
+<<eval_missing_data, echo=FALSE>>=
+<<missing_data>>
+@
+
+Regarding the quality of the data, most of the metadata is complete. Notable exceptions are \Sexpr{missing_data$mandatoryTags[15,'missing_pct']}\% of author’s keywords (DE), \Sexpr{missing_data$mandatoryTags[14,'missing_pct']}\% of Web of Science Keywords Plus (ID) and all of Web of Science Categories, not included in the dataset.
+
+<<run_slice_2022, include=FALSE>>=
+<<slice_2022>>
+@
+
+SAF research in the Web of Science platform spans from \Sexpr{S$AnnualProduction$`Year   `[[1]]} to current year (\Sexpr{S$AnnualProduction$`Year   `[[length(S$AnnualProduction$`Year   `)]]}), as research on sustainable industries increased following a global change in energy policy, discussed in more detail in Section \ref{authors_keywords_textual_analysis}.
+
+<<run_bib_analysis_results_before_AND, results='hide', echo=FALSE>>=
+<<bib_analysis_results_before_AND>>
+@
+
+Total author count is \Sexpr{results$nAuthors}. Before author name disambiguation this number was \Sexpr{results_NOT_ANDED$nAuthors}. This means that there are more distinct authors that share the same name, or homonyms, than synonyms. During manual author name disambiguation one noticed that most of the homonyms are from Chinese researchers. A fact that can be explained partially by China's relevance to this field. It not only is the second most productive country in terms of number of published documents, which increase the chance of homonym occurrence, but also there are many researchers of Chinese origin working in collaboration with the most published country, the United States, further increasing homonym chance.
+
+\subsection{Most relevant sources}
+\label{most_relevant_sources}
+
+The journal with the most publications is Elsevier's Fuel (Table \ref{tab:most_rel_sources})), followed by Energies (MDPI AG) and Renewable \& Sustainable Energy Reviews (Elsevier). From the top ten sources, six are published by Elsevier, and the other four are shared by MDPI AG, Wiley, ACS and Frontiers Media SA. The source that focus the most on SAF is BioFPR from Wiley, 2.91\% of its registered DOIs are on SAF research.
+
+<<show_most_relevant_sources, echo=FALSE>>=
+<<most_relevant_sources>>
+@
+
+\subsection{Productivity analysis}
+\label{productivity}
+
+\autoref{fig:annual_scient_prod} shows the annual scientific production on SAF for all documents available in the Web of Science database. The average annual growth rate from \Sexpr{S_2022$AnnualProduction$`Year   `[[1]]} to \Sexpr{S_2022$AnnualProduction$`Year   `[[length(S_2022$AnnualProduction$`Year   `)]]} is \Sexpr{S_2022$AnnualGrowthRate}\%, which increases slightly to \Sexpr{S_2012_2022$AnnualGrowthRate}\% when one looks only to the last decade --- from 2012 to 2022. Until around 2007 there was little interest on the topic. The aviation sector was considered, and still is, one of the most difficult to decarbonize. At the time there was no prospect for SAF implementation in the near future due to high cost and lack of policy. With time, environmental concerns increased, new policies were implemented and research took off. Most of the difficulty is regulatory and logistical. Technologies for the production of alternative fuels such as Fischer-Tropsch Synthesis and Hydroprocessing of Oils and Fatty Acids were well known at the time. On the regulatory side, the Defense Standard 91-091 of the UK Ministry of Defense \cite{uk_ministry_of_defense_defence_2019} was the first to allow, in 1999, the mixing of synthetic hydrocarbons into conventional jet fuel, thanks to the efforts of Sasol.
+
+In the next sections the productivity analysis was split into three levels: national, institutional and individual. The objective is to get an overview of quantity, by looking at raw publication numbers, as well as quality, by using metrics such as author h-index in section \ref{authors_productivities}. Lets begin at a national level, move to an overview of the most relevant work by universities and institutes and end the analysis at the most influential and productive authors.
+
+\begin{figure}
+<<plot_annual_scient_prod, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+plot(S_2022$AnnualProduction, type = "l", lty = 0)
+lines(S_2022$AnnualProduction, type = "l", lty = 1)
+@
+	\caption{SAF research annual production numbers from \Sexpr{S$AnnualProduction$`Year   `[[1]]} to \Sexpr{S$AnnualProduction$`Year   `[[length(S$AnnualProduction$`Year   `)]]}.}
+	\label{fig:annual_scient_prod}
+\end{figure}
+
+\subsubsection{National productivity}
+\label{contries_productivity}
+
+The surge of SAF publications observed in \autoref{fig:annual_scient_prod} is explained by the international aviation sector's goal of total decarbonization by the middle of the century. Most of the world's nations have agreed to start reducing emissions by the end of the decade \cite{iata_factsheet_2023}. Among these, the most productive in terms of number of publications, as can be seen in \autoref{fig:most_prod_countries_npub}, are the United States and China, the biggest investors in research and development, in this order \cite{oecd_oecd_2023}. The most impactful factors on renewable energy development are policy, energy consumption for unit of economic output and research and development investment (R\&D). For high income countries, which already have an established renewable energy sector, the most important effect on renewables adoption comes from policies, while in middle income ones the most relevant response is from R\&D \cite{wang_heterogeneous_2020}.
+
+When one looks at the ratio of multiple country to single country publications in \autoref{fig:MCP_ratio}, European countries such as the Netherlands and United Kingdom come ahead, while the USA, China and Brazil have room to grow in this aspect. Proportional to economic output and population size, Brazil and India, in particular, have low productivity and could benefit greatly from more international collaborations.
+
+\begin{figure}
+<<show_most_prod_countries, out.width="100%", fig.height=4, fig.align='center', results='hide', echo=FALSE>>=
+<<barplot_most_prod_countries>>
+@
+	\caption{Most productive countries in terms of number of publications.}
+	\label{fig:most_prod_countries_npub}
+\end{figure}
+
+\begin{figure}
+<<show_most_MCP_ratio, out.width="100%", fig.height=4, fig.align='center', results='hide', echo=FALSE>>=
+<<plot_int_collab>>
+@
+	\caption{Multiple country to single country publication ratios.}
+	\label{fig:MCP_ratio}
+\end{figure}
+
+\subsubsection{Institutional productivity}
+\label{uni_productivity}
+
+The two most productive institutions are Washington State University (WSU) in the USA and Tianjin University in China, with 148 and 91 published documents respectively. Both are well represented by high impact researchers as can be seen in Table \ref{tab:h_index}.
+
+WSU's most cited papers are on the conversion of lignocellulosic biomass to biofuels \cite{zhang_catalytic_2016, wang_biomass-derived_2015, zhang_enhancement_2016}. Other important work has also been published on techno economic analysis and process design for alternative fuels from Fischer-Tropsch Synthesis, hydrotreatment of pyrolysis oils and alcohol-to-jet. As well as repurposing studies of current infrastructure for alternative jet fuel production, like ethanol plants \cite{tanzil_evaluation_2022} and petroleum refineries \cite{tanzil_production_2021}.
+
+Tianjin University's biggest focus is on hydroprocessing, particularly hydrodeoxygenation for the production of high density jet fuel composed of cyclic hydrocarbons \cite{deng_efficient_2016}. High density fuels are desired for volume limited aircraft, mostly military. Civilian aircraft often take off with a partially filled tank, with just enough fuel for a safe flight to its destination, thus it is most often not limited by volume and a fuel with a high volumetric energy density is desired. On the other hand if an aircraft takes off with a full tank, the optimal fuel would be one with a high energy density per unit mass.
+
+Other relevant work by Tianjin University is on pyrolysis kinetic modeling \cite{wang_experimental_2022} and production of olefins, aromatics and hydrocarbons from raw bio-oil and waste cooking oil \cite{ma_co-upgrading_2018}. The aromatics content of such fuels could be an important additive for jet fuel. Further discussion of aromatics role on jet fuel is given in Section \ref{SAF_common}.
+
+\subsubsection{Individual productivity}
+\label{authors_productivities}
+
+<<eval_most_prod_authors, include=FALSE, echo=FALSE>>=
+<<most_prod_authors>>
+@
+
+To characterize the impact of an author's research, the h-index was used. This index was proposed by Dr. J. E. Hirsch in 2005 and is "defined as the number of papers with citation number higher or equal to h" \cite{hirsch_index_2005}. This means that an author with an h-index of 50 has published 50 articles with at least 50 citations each. Five of the top ten authors in order of h index in Table \ref{tab:h_index} are from China, two from the United States, two from Europe and another from Mexico. The most frequent keywords by these authors reveal that most work on hydroprocessing and pyrolysis, both topics discussed in more detail in the coming sections. Most have been working on the subject since 2015, as is expected by the period's rapid growth in the number of publications. One notable outlier is Dr. Philippe Dagaut. A research director in the French National Center for Scientific Research (CRNS), Dr. Dagaut have been publishing research on reaction kinetics of fuel oxidation since 1986. His work includes kinetic models for the combustion of alternative fuels \cite{dagaut_kinetics_2007, mze-ahmed_kinetics_2014}. Such data is essential for combustion and emissions simulations, which can be used on aircraft engine computer models and life cycle assessments.
+
+<<eval_h_index, include=FALSE, echo=FALSE>>=
+<<h_index>>
+@
+
+<<show_h_index_table, echo=FALSE>>=
+<<h_index_table>>
+@
+
+A common keyword on Dr. Dagaut's papers that have recently become a trend topic (see Section \ref{future} and \autoref{fig:trends}) is \textbf{jet-stirred reactor}: a common tool for conducting fuel oxidation experiments. It is a vessel equipped with nozzles capable of providing turbulent jets of fuel that are used to obtain a thorough mix \cite{herbinet_jet-stirred_2013}, so that a condition of uniform concentration may be assumed. This along with conditions of constant residence time, temperature and pressure, greatly simplifies mass and energy balance equations. Its surfacing as a trend topic indicates that SAF technologies are maturing and moving from fundamental research on fuel production itself, by searching for suitable processes and catalysts, to optimization towards fuel composition and emission performance according to current regulations.
+
+The highest h index author is Dr. Xiangwen Zhang from Tianjin University, which is also the second most productive institution. Dr. Zhang's SAF related papers focus on various topics of chemical reaction engineering and catalyst development, including the production of high density aviation biofuel consisting of cyclic hydrocarbons as well as work on hydroprocessing, pyrolysis and alkylation. High density fuels are a hot topic among the most influential authors due to its interesting properties for volume limited aircraft (see section \ref{uni_productivity}). Dr. Zhang's group includes other top researchers like Dr. Lun Pan and Dr. Ji-Jun Zou, as can be observed in the authors collaboration network in \autoref{fig:authors_network}. The authors' collaboration network also reveals that the top research groups do not collaborate with each other. Fragmentation is certainly an engine for competition between groups, which foments innovation. But in excess it could inhibit sharing of ideas and resources, and limit progress.
+
+\begin{figure}
+<<show_author_collaboration_network, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<author_collaboration_network>>
+@
+	\caption{Authors' collaboration network (biggest 50 nodes).}
+	\label{fig:authors_network}
+\end{figure}
+
+\subsection{International collaboration}
+\label{international_collaboration}
+
+The two central countries on the global collaboration network, shown in \autoref{fig:countries_network}, are the United States (193 total connections) and China (188 total connections). Besides centrality, the strongest collaboration link is also between the two nations with 53 collaborations. All the most connected countries are signatories of CORSIA. In Europe the biggest nodes are the United Kingdom, Germany and the Netherlands.
+
+The central cluster of countries represents the majority of global population, but countries such as India and Brasil have too little connections in proportion to the sizes of their populations and economies. The same is true for overall number and quality\footnote{Assessed by looking at the country of origin in the rank of authors' h index.} of publications. These nations have huge growth potential and with it the aviation sector's relevance increases. If they are to comply with CORSIA, it is on their interests to develop domestic technologies in order to be independent of the USA, China and Europe from the economic and energy security point of view. Consequently, if they do not become more active in SAF research it is likely that in the near future both nations will be faced with the choice of either not to comply with CORSIA or buy carbon credits and import technology and expertise. 
+
+\begin{figure}
+<<show_countries_network, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<country_collaboration_network>>
+@
+	\caption{Countries' collaboration network. Node and edge sizes are proportional to the number of connections. The biggest edge, between USA and China, corresponds to 53 connections. The biggest node (USA) has 193 connections.}
+	\label{fig:countries_network}
+\end{figure}
+
+\subsection{Textual analysis}
+\label{textual_analysis}
+
+The textual analysis was performed based on co-occurrence networks built on terms (highlighted in bold) extracted from titles and keywords. Titles are more generalist and provide an overall idea of the most explored topics, while keywords reveal more in-depth information about the technologies under study.
+
+\subsubsection{Titles co-occurrence network}
+\label{titles_textual_analysis}
+
+Extracted title terms co-occurrence network, in \autoref{fig:titles_network}, reveal the most explored subjects and their relations. The biggest nodes refer to aviation fuel production. The presence of the \textbf{review} and \textbf{techno-economic analysis} (tec. acon. analysis) nodes suggest a high preponderance of this type of paper. The \textbf{life} and \textbf{cycle} terms are certainly related to life cycle assessment (LCA), a technique to quantify the environmental impact of a human activity.
+
+\begin{figure}
+<<show_title_keyword_network, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<titles_keywords_co-occurrence_network>>
+@
+	\caption{Titles keywords co-occurrence network.}
+	\label{fig:titles_network}
+\end{figure}
+
+On the experimental side, there is research on the \textbf{conversion} of liquid and solid biomass to \textbf{hydrocarbons}. It targets hydrolysis, \textbf{hydroprocessing},  \textbf{deoxygenation} and \textbf{pyrolysis} to find catalysts highly active on the conversion of biomass into hydrocarbons of a suitable range to produce synthetic fuels. Another important experimental area is the study of the \textbf{characteristics} of the fuels produced once the best catalysts and operating parameters are found. These papers characterize the properties of SAF, how it behaves when fed into \textbf{engines}, appropriate blends with current fossil \textbf{fuels} to ease the transition, as well as evaluations of engine \textbf{emissions} and \textbf{impacts} on \textbf{air} quality.
+
+\subsubsection{Authors' keywords co-occurrence network}
+\label{authors_keywords_textual_analysis}
+
+The authors' keywords co-occurrence network in \autoref{fig:authors_keyword_network}, complements the titles' analysis, bringing to the front some more useful information. There are three clusters. On the analysis of the viability of biofuels in red, one term catches the eye: \textbf{CORSIA} \cite{icao_carbon_2023}. It stands for Carbon Offsetting and Reduction Scheme for International Aviation. A measure by the International Civil Aviation Organization (ICAO) adopted in 2016 to reduce \ce{CO2} emissions from international flights. The objective is to cap emissions at 85\% of what was emitted in 2019 in the period from 2024 to 2035. Furthermore, there is an ambitious commitment to reach zero emissions by 2050 \cite{iata_factsheet_2023}. Offsetting involves the use of sustainable aviation fuels, deployment of renewable energy sources, reforestation or any other activity that reduces \ce{CO2} emissions. By 2027 most of the world will be pursuing CORSIA goals \cite{iata_factsheet_2023}. This is a great opportunity for the SAF sector, as airlines will be searching for clean drop-in fuels in order to be able to grow beyond 2019 levels.
+
+Sustainable Aviation Fuel is a common expression used in the literature to refer to synthetic aviation fuel sourced from non-fossil carbon. But one observation must be made about its use: even if the feedstock is non-fossil, the resulting product might not be sustainable. Perhaps a more appropriate term for the cases when authors can not guarantee sustainability would be ``alternative aviation fuel''. One such approach to assess sustainability is life cycle assessment. Still, the ``sustainable aviation fuel'' query was kept even if it is sometimes incorrectly used by authors, as the focus of this analysis is on truly sustainable aviation fuels.
+
+\begin{figure*}
+<<show_keyword_network, results='hide', out.width="100%", fig.align='center', fig.height=4, echo=FALSE>>=
+<<authors_keywords_co-occurrence_network>>
+@
+	\caption{Authors' keywords co-occurrence network.}
+	\label{fig:authors_keyword_network}
+\end{figure*}
+
+Still in the red cluster there is a link between \textbf{efficiency}, \textbf{energy} and \textbf{exergy}. Exergy is the maximum amount of useful work that can be extracted from a system when it is brought to thermodynamic equilibrium. In contrast to energy it is not a conservative property. Essentially, exergy is a property that accounts for entropy and allows for the evaluation of system efficiency \cite{bejan_fundamentals_2002}. Exergy analysis can be applied both to SAF production \cite{hao_energy_2021} and aircraft engine performance \cite{balli_turbofan_2021, balli_thermodynamic_2021}.
+
+The blue cluster in  \autoref{fig:authors_keyword_network} refers to three SAF technologies: \textbf{Fischer-Tropsch Synthesis} (FTS), \textbf{Alcohol-to-Jet} (ATJ) and \textbf{deoxygenation} of vegetable oils, which occurs primarily via \textbf{decarboxylation} reaction, commonly referred to as DCO2. The deoxygenation of vegetable oils is often done by \textbf{hydroprocessing} of the esters and fatty acids in the oils (HEFA). In general, the biomass \textbf{feedstocks} cannot be used in brute form in these processes. FTS requires the \textbf{gasification} of materials such as \textbf{lignocellulosic biomass} into syn-gas; ATJ is mostly fed by ethanol produced by fermentation; and deoxygenation uses oils extracted from plants. In contrast is \textbf{pyrolysis} in the green cluster. Its main advantage is that feedstocks can be introduced into the plant without much treatment. On the other hand pyrolysis reactor product has a lower quality and consequently greater refining cost. To make the reader familiar with the terms that emerged in \autoref{fig:authors_keyword_network}, an overview of the most relevant SAF production technologies is given below. For more in-depth information, the three most cited reviews in the dataset are a good start \cite{alonso_catalytic_2010, zhang_catalytic_2016, sims_overview_2010}.
+
+\subsubsection{Overview of SAF technologies}
+\label{SAF_overview}
+
+\paragraph{Feedstocks and common characteristics}
+\label{SAF_common}
+
+SAF production takes on either starchy (including sugars), triglyceride
+or lignocellulosic feedstocks into biorefineries, similar in nature to petroleum refineries, where the oxygen content is reduced and carbon chains of a wide range are formed, not always in this order, to produce a crude bio-oil that can be refined into various fractions \cite{alonso_catalytic_2010}. It is common the classification of biomass into first generation, sourced from food crops, and second generation, of non-food feedstocks, mostly lignocellulosic \cite{sims_overview_2010}. The fuels produced are usually paraffinic, with low sulfur and aromatics content. Lack of aromatics causes fuel seals to shrink \cite{yakovlieva_experimental_2023}, so at least 8 vol\% aromatics are required on jet fuels \cite{starck_production_2016}. Consequently SAF must be put through dehydrocyclization to increase aromatic concentration. Even if it is aromatized, current regulations require SAF to be blended up to 50\% with conventional jet fuel to ensure proper fuel quality \cite{enright_d7566_2023}.
+
+\paragraph{Hydroprocessing of esters and fatty acids (HEFA)}
+\label{HEFA}
+
+Reacts esters and fatty acids with hydrogen to produce hydrocarbons \cite{monteiro_production_2022}. These reactions include deoxygenation, which increases the energy content; cracking, to break apart excessively long molecules, and isomerization, which reorganizes the carbon chains improving physical characteristics such as cold flow properties \cite{starck_production_2016}, particularly important for aircraft operated at the low temperatures found at high altitudes.
+
+Currently, it is the largest industrial source of bio-oil, predominantly biodiesel. Fuels obtained by this route have a low sulfur content and generate less soot than fossil counterparts, but the selectivity to aviation kerosene is low because vegetable oils have carbon chains similar in length to what is encountered in diesel fuel \cite{doliente_bio-aviation_2020}.
+
+\paragraph{Fischer-Tropsch synthesis (FTS)}
+\label{fts}
+
+It is a process for producing hydrocarbons from synthesis gas, a mixture of \ce{CO} and \ce{H2}, on catalysts based on cobalt, iron and/or ruthenium \cite{huber_synthesis_2006}. Synthesis gas can be sourced from lignocellulosic biomass via partial combustion (gasification) \cite{alonso_catalytic_2010} or from reforming of biogas (\ce{CH4} + \ce{CO2}) or methane produced by anaerobic digestion of biomass. Compared to HEFA, FTS is less limited in terms of feedstock and emits less greenhouse gases, however it has a higher capital cost \cite{tiwari_environmental_2023}.
+
+\paragraph{Alcohol-to-jet (ATJ)}
+\label{atj}
+
+ATJ is a technology of alcohol oligomerization, that is, short alcohol molecules --- monomers --- grow into long hydrocarbon compounds. The alcohols are dehydrated, oligomerized to long chain olefins and then hydrogenated into a mixture of alkanes. Due to the dehydration step, the catalysts used for ATJ are highly acidic aluminas and zeolites \cite{wang_bio-jet_2016}.
+
+\paragraph{Pyrolysis and hydrothermal liquefaction (HTL)}
+\label{pyrolysis_and_HTL}
+
+The biomass, often cellulosic, is thermally decomposed into bio-char, biogas and bio-oil. The bio-oil is upgraded by hydrotreatment \cite{wang_bio-jet_2016} in a manner similar to what is done for HEFA, namely isomerization, cracking and deoxygenation. Along with gasification plus FTS, pyrolysis and HTL processes can make use of the most highly available and cheap source of renewable carbon: lignocellulosic biomass, while HEFA and ATJ can only resort to more noble feedstocks. Pyrolysis and HTL differ in process conditions. While pyrolysis is done under atmospheric pressure with dry biomass in the range of \num{400} \unit{\celsius} to \num{600} \unit{\celsius} and a residence time of a few seconds; hydrothermal liquefaction is a high pressure (7-20 \unit{\mega \pascal}) process performed in the range of \num{280} \unit{\celsius} to \num{380} \unit{\celsius} in the presence of water. HTL biocrude has lower oxygen content, higher energy value and lower upgrading cost than pyrolysis oil \cite{tzanetis_analysis_2017}.
+
+\subsection{Citation analysis}
+\label{citation_analysis}
+
+Important papers were divided in two categories. The most locally cited papers, that is, the papers with the most citations within the dataset; and historical papers, which are less cited in recent literature, but contributed greatly to early research. In both cases, the predominant types of papers are reviews and life cycle assessments.
+
+\subsubsection{Most locally cited papers}
+\label{most_locally_cited}
+
+<<run_slice_2016_2020, echo=FALSE>>=
+<<slice_2016_2020>>
+@
+
+When one begins to work on a new project or research, literature reviews are a great resource to get a quick introduction to a subject. For this reason the most locally cited papers, listed in Table \ref{tab:most_locally_cited}, are reviews published between 2016 and 2020. The period has \Sexpr{100*results_2016_2020$Articles/results$Articles}\% of the total number of documents and \Sexpr{100*reviews_2016_2020/results_2016_2020$Articles}\% are reviews. The most recent timespan, from 2021 to 2023, have a similar proportion of reviews (\Sexpr{100*reviews_2020_2023/results_2020_2023$Articles}\%) but not yet enough time to be read and cited in the same numbers. In general, authors tend to favor recent documents as references, and the interval of relevance of a document shifts along with new publications. Indeed, \autoref{fig:review_citation_vs_age} shows a tendency for recent papers (aged 10 years or less) to reach a maximum rate of citations around age five and then drop in relevance. Very few pass the test of time and keep a high citation rate as they age.
+
+Many issues discussed by the papers in Table \ref{tab:most_locally_cited} were already covered in the previous discussion, other are extensions and improvements of previous pioneering work, which will be discussed in the next section. After that, attention is shifted to the future, by looking at recent trends. 
+
+<<show_most_locally_cited_papers, echo=FALSE>>=
+<<most_locally_cited_papers>>
+@
+
+\begin{figure}
+<<show_review_citations_vs_age, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<plot_review_age_vs_citation>>
+@
+	\caption{SAF research papers total citations versus age plot, separated by articles and reviews.}
+	\label{fig:review_citation_vs_age}
+\end{figure}
+
+\subsubsection{Historically influential references: References publication year spectroscopy}
+\label{rpys}
+
+It is difficult to identify early influential papers by looking at the number of citations alone. But if one looks at the deviation in the number of citations from the five year median, historical years, and consequently the most cited papers of such years, can be identified. This method is called references publication year spectroscopy \cite{marx_detecting_2014}, or RPYS, and the graph that it produces, presented in \autoref{fig:rpys}, resembles spectra that would be obtained, for example, from measurements of light absorption. The peaks of the solid line highlight years with an unusually high citation count. The five most historical years for SAF references are, in order of importance, 2010, 2011, 2009, 2008 and 2007. A brief summary of the three most relevant papers for each of these years is presented below, the top cited historical papers are listed in Table \ref{tab:historical_papers}.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table*}[]
+  \caption{Historical papers.}
+  \label{tab:historical_papers}
+  \include{historical_papers.tex}
+\end{table*}
+
+\begin{figure}
+<<show_rpys, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<reference_publication_year_spectroscopy>>
+@
+	\caption{References publication year spectroscopy.}
+	\label{fig:rpys}
+\end{figure}
+
+\paragraph{2010}
+\label{2010}
+
+A paper by Shonnard, Williams and Kalnes \cite{shonnard_camelina-derived_2010} (58 LC\footnote{Local Citations: citations mentioned within the papers of the dataset. As opposed to global citations, which are all the citations the paper ever received.}) on camelina derived jet-fuel and diesel via hydrotreatment (HEFA) presents a life cycle analysis of fuels from camelina cultivated on marginal lands and on lands used for food crops in the periods between harvests. Camelina is a weed native to Europe and well adapted to temperate climates with a short season crop. This route can have green house gas savings of up to 80\%. The biggest contributions to emissions are from feedstock production, transportation and processing. During cultivation, emissions are from farm equipment run on fossil diesel and \ce{NO2} from fertilizer. Hydroprocessing requires large amounts of hydrogen sourced from steam reforming of natural gas and transportation of large volumes of feedstock through great distances is also a problem.
+
+On the topic of climate science, Lee et al. \cite{lee_transport_2010} (42 LC) assess that the impact of aviation on the atmosphere is on the direction of warming caused by \ce{CO2}, soot, water and \ce{NOx}.
+
+Rye, Blakey and Wilson \cite{rye_sustainability_2010} (42 LC) present in a review a perspective not only from the point of view of sustainability but also from supply security. Even if a fuel is not sustainable it might still be valuable if it can replace current jet fuel in an oil shortage scenario. Often neglected secondary impacts such as those from land usage and coal or natural gas feedstocks to supplement production must be included in the emissions assessment. The two processes evaluated in the review are Fischer-Tropsch Synthesis (FTS) and hydroprocessing. FTS is more suitable for supply diversification, because the syn-gas source does not matter from the production point of view. Hydroprocessing emits less when operated with sustainable feedstock.
+
+\paragraph{2011}
+\label{2011}
+
+Another review by Blakey, Rye and Wilson \cite{blakey_aviation_2011}, now on ``Aviation gas turbine alternative fuels'' is the most cited of the historical references with 111 local citations. It gives a thorough evaluation of what the authors call aviation alternative fuels. The choice of words is wise, using a term such as sustainable aviation fuels may not always be appropriate. Although alternative aviation fuels combustion is demonstrably cleaner than conventional jet fuel in almost every case --- from HEFA, FTS and ATJ fuels; the whole life cycle of land usage for feedstock production, fuel processing and transportation must be evaluated.  It is not yet known if all the proposed alternatives are indeed sustainable. Clearing of natural \ce{CO2} fixing land for fuel production, such as jungles and forests, could have the same if not worse environmental impact than fossil kerosene. Natural forested land has not only a direct impact on \ce{CO2} balance, but also on other factors such as rain cycles \cite{pielke_overview_2007} and the availability of land for every other form of life with which we share the planet and may depend on for our survival, even if is hard to quantify their relationship to mankind. These effects are sometimes referred in the literature as land use change impact, or LUC. In conclusion, as stated by Blakey, Rye and Wilson \cite{blakey_aviation_2011}: ``alternative fuels should only be sourced from marginal land'' and, one adds, from industrial and agricultural biomass residues.
+
+Notice that Fatty Acid Methyl Esters (FAME) is seldom mentioned as a possibility for aviation. Their feedstocks have inappropriate chain lengths as mentioned above, but also trace amounts of metals are carried from the feedstock to the final product, which is not permitted by current regulations due to negative effects on engines \cite{blakey_aviation_2011}. Although FAME and HEFA fuels are often sourced from the same feedstocks, they are not the same. FAME is produced by transesterification of fatty acids from vegetable oils with alcohols using a base as a catalyst. HEFA fuels are hydroprocessed vegetable oils, that is, they are reacted with hydrogen in the presence of a catalyst, which removes heteroatoms such as sulfur, nitrogen, oxygen and metals via hydrogenation and hydrogenolysis. More detailed information about hydroprocessing is presented by refs. \cite{ancheyta_hydroprocessing_2005, sonthalia_hydroprocessed_2019}.
+
+Still in 2011, an important life cycle assessment by Agustinata et al. \cite{agusdinata_life_2011} (60 LC) was published. It concluded that the production of biojet fuel in the United States, at the rate of adoption at the time, would not be sufficient to meet the emissions target.
+
+In tandem with life cycle assessments there is another essential line of work on the properties of alternative aviation fuels. Industrial and pilot scale alternative jet fuels (AJF) produced from fossil and bio-sourced carbon produced by Sasol, Shell, Rentech, UOP, and Syntroleum
+Corporation were studied by Corporan et al. \cite{corporan_chemical_2011} (52 LC). AJFs have better combustion than conventional JP-8 fuel, resulting in less soot and \ce{CO} in the exhaust. Nevertheless they need to improve on three essential areas: 
+
+{\enumerate{
+  \item Lubricity\footnote{The capability of a compound to reduce friction and wear.} is poor due to the paraffinic nature of the fuels and the hydrotreatment to remove heteroatoms. Lubricity is improved in fuels that contain heteroatoms that increase polarity, like oxygen, nitrogen and sulfur, as well as by the presence of double bonds \cite{knothe_lubricity_2005};
+  \item The low aromatics content cause insufficient seal swell. In the short term aromatics from petroleum can be added. For the long term, fuel seals can be substituted by materials that perform better with AJFs, like nitrile instead of elastomer seals \cite{corporan_chemical_2011};
+  \item Density and volumetric energy content need to improve.
+
+}}
+
+\paragraph{2009}
+\label{2009}
+
+One of the major concerns of SAF researchers is on fuel emissions. For this reasons among the historical references are papers on the impact of the aviation sector on climate change \cite{lee_aviation_2009, lee_transport_2010}.
+
+\paragraph{2008}
+\label{2008}
+
+Searchinger et al. \cite{searchinger_use_2008} was one of the first to warn about thinking that a fuel is sustainable because its feedstock captures atmospheric carbon. When biofuel prices increase, farmers clear land to expand crop production, which increases emissions. Crops like corn for ethanol production can double emissions, so the feedstock choice must be considered with great care.
+
+\paragraph{2007}
+\label{2007} The utilization of oil refineries for biofuel production was being considered \cite{huber_synergies_2007, huber_processing_2007}. The feedstock that would require minimal modifications for refinery conversion is vegetable oil. Problems with the production of aviation biofuels are the same as the ones mentioned above: supply scarceness, food security and yield. For lignocellulosic biomass, pyrolysis or hydrolysis are two options to produce bio-oil for hydrotreatment. It is available in greater quantities but the crude bio-oil is often of poor quality, which increases refining costs.
+
+\section{The future}
+\label{future}
+
+A timeline of recent author's keywords and their time span, in \autoref{fig:trends}, gives hints to what is expected of SAF research in the coming years. Work on lignocellulosic biomass continues, it is the most problematic feedstock but has the greatest potential volume of production. HEFA, FTS, ATJ, pyrolysis and HTL have been established as the core technologies for now. Still, there are great challenges ahead. Proofs of concept are plentiful but not yet efficient enough for large scale production. There are doubts on the availability of land to produce all the carbon necessary to meet current CORSIA goals. It is estimated that to provide the commercial aviation sector with a 50/50 blend of SAF \footnote{sourced from Jatropa oil} to conventional jet fuel would require 6\% of the world's arable land, just to meet the demands of a sector responsible for 2.6\% of \ce{CO2} emissions \cite{rye_sustainability_2010}, an unfeasible approach. Therefore, the upstream processes need to improve. The example of land usage given above is based on Jatropa oil alone, but there is more carbon in lignocellulosic biomass. Its supply potential is more than four times larger than oil producing feedstock \cite{agusdinata_life_2011}. Efficiency improvements could involve hybrid processes, combining the strengths and weaknesses of the technologies. Surplus hydrogen from Fischer-Tropsch synthesis could be directed to hydroprocessing; the high diesel cut from vegetable oils can be fueled into the transportation of lignocellulosic biomass; sugar cane bagasse from ethanol used in alcohol-to-jet can be gasified for FTS. Certainly, the future biorefinery should be as versatile as possible and capable to integrate all above mentioned technologies to increase efficiency. Several SAF plants have been recently announced worldwide \cite{shahriar_current_2022}. These will allow collection of data for a next step in the direction of energy security and emission reduction, besides the quality of life improvements around airports burning cleaner fuels.
+
+As mentioned in Section \ref{authors_productivities}, one indication that SAF research is maturing is the increasing work on fuel properties, by applying tools such as jet-stirred reactors. Such experimental effort provides data on fuel combustion for the development of kinetic models to be used on simulations of aircraft engines prior to flight tests. Concerning \textbf{aircraft design}, there are nine papers with this keyword. A good way to analyze specific keywords or any other interesting term, is to look only at the subset of the data that mentions it. For the aircraft design term, its keyword network in \autoref{fig:aircraft_design}, reveals promising aircraft technologies in an early stage of development: hydrogen fueled aircraft and new engine and air frame designs for low noise and fuel efficiency. 
+
+<<aircraft_design_filter_show, echo=FALSE>>=
+<<aircraft_design_filter>>
+@
+
+\begin{figure}
+<<show_trends, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<trend_topics>>
+@
+	\caption{Timeline of most mentioned topics from 2017 to 2022. The bars represent the time span of each term, the location of the circle the year and its size the frequencies.}
+	\label{fig:trends}
+\end{figure}
+
+\begin{figure}
+<<show_aircraft_design_keyword_network, results='hide', out.width="100%", fig.align='center', fig.height=6, echo=FALSE>>=
+<<aircraft_design_filter_results>>
+<<aircraft_design_keyword_network>>
+@
+	\caption{Keyword network of the subset of papers on aircraft design.}
+	\label{fig:aircraft_design}
+\end{figure}
+
+\section{Conclusion}
+\label{conclusion}
+
+Sustainable aviation fuel research is taking off. In the past decade the average yearly growth rate reached \Sexpr{S_2012_2022$AnnualGrowthRate}\%. In \Sexpr{S$AnnualProduction$`Year   `[[25]]} alone, \Sexpr{S$AnnualProduction$Articles[[25]]} documents were published. Recent international policies and agreements provided airline companies with incentives to decarbonization. This paper provided a bibliometric overview of the most relevant SAF research, its benefits and challenges. Base SAF production technologies are well established in the literature. On the side of chemical processing strategies, it is perfectly possible to produce synthetic aviation fuels of a higher quality than conventional jet fuel. Issues emerge when the application of such technologies is considered in large scales. Then its feasibility is put in question since laboratory scale research alone is not capable of providing all answers. Industrial regional implementation of synthetic aviation fuels is emerging to provide proofs of concept for this first step of the transition from conventional jet fuel to drop-in alternative, synthetic, hopefully sustainable, aviation fuels.
+
+\section{Acknowledgments}
+\label{acknowledgments}
+
+The authors would like to thank Geo Biogás \& Tech and the Brazilian funding agencies CAPES-CNPQ and FINEP for their support of scientific and technological development.
+
+\section{Disclaimer}
+\label{disclaimer}
+The authors are currently involved in a project for the implementation of a pilot scale SAF production plant in the state of Paraná, Brazil.
+
+\section{Data Availability}
+\label{data_availability}
+
+Datasets related to this article can be found at the corresponding author's Github \href{https://github.com/rafaelbeloduarte/SAF_bib_analysis.git}{repository} \cite{belo_duarte_rafaelbeloduartesaf_bib_analysis_2023}.
+
+%% The Appendices part is started with the command \appendix;
+%% appendix sections are then done as normal sections
+%% \appendix
+
+%% \section{}
+%% \label{}
+
+%% If you have bibdatabase file and want bibtex to generate the
+%% bibitems, please use
+%%
+%% \bibliographystyle{elsarticle-num} 
+%% \bibliography{bibliography.bib}
+
+%% else use the following coding to input the bibitems directly in the
+%% TeX file.
+
+% \begin{thebibliography}{00}
+
+%% \bibitem{label}
+%% Text of bibliographic item
+
+% \bibitem{}
+
+% \end{thebibliography}
+
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{barke_are_2022}
+A.~Barke, T.~Bley, C.~Thies, C.~Weckenborg, T.~S. Spengler,
+  \href{https://www.mdpi.com/2076-3417/12/2/597}{Are {Sustainable} {Aviation}
+  {Fuels} a {Viable} {Option} for {Decarbonizing} {Air} {Transport} in
+  {Europe}? {An} {Environmental} and {Economic} {Sustainability} {Assessment}},
+  Applied Sciences 12~(2) (2022) 597, number: 2 Publisher: Multidisciplinary
+  Digital Publishing Institute.
+\newblock \href {https://doi.org/10.3390/app12020597}
+  {\path{doi:10.3390/app12020597}}.
+\newline\urlprefix\url{https://www.mdpi.com/2076-3417/12/2/597}
+
+\bibitem{alonso_catalytic_2010}
+D.~M. Alonso, J.~Q. Bond, J.~A. Dumesic,
+  \href{https://pubs.rsc.org/en/content/articlelanding/2010/gc/c004654j}{Catalytic
+  conversion of biomass to biofuels}, Green Chemistry 12~(9) (2010) 1493--1513,
+  1779 citations (Crossref) [2022-12-06] Publisher: The Royal Society of
+  Chemistry.
+\newblock \href {https://doi.org/10.1039/C004654J}
+  {\path{doi:10.1039/C004654J}}.
+\newline\urlprefix\url{https://pubs.rsc.org/en/content/articlelanding/2010/gc/c004654j}
+
+\bibitem{wang_bio-jet_2016}
+W.-C. Wang, L.~Tao,
+  \href{https://www.sciencedirect.com/science/article/pii/S1364032115009867}{Bio-jet
+  fuel conversion technologies}, Renewable and Sustainable Energy Reviews 53
+  (2016) 801--822.
+\newblock \href {https://doi.org/10.1016/j.rser.2015.09.016}
+  {\path{doi:10.1016/j.rser.2015.09.016}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S1364032115009867}
+
+\bibitem{aria_bibliometrix_2017}
+M.~Aria, C.~Cuccurullo,
+  \href{https://www.sciencedirect.com/science/article/pii/S1751157717300500}{bibliometrix:
+  {An} {R}-tool for comprehensive science mapping analysis}, Journal of
+  Informetrics 11~(4) (2017) 959--975, 1648 citations (Crossref) [2022-09-06].
+\newblock \href {https://doi.org/10.1016/j.joi.2017.08.007}
+  {\path{doi:10.1016/j.joi.2017.08.007}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S1751157717300500}
+
+\bibitem{yuan_research_2022}
+R.~Yuan, J.~Pu, D.~Wu, Q.~Wu, T.~Huhe, T.~Lei, Y.~Chen,
+  \href{https://www.mdpi.com/1660-4601/19/23/15881}{Research {Priorities} and
+  {Trends} on {Bioenergy}: {Insights} from {Bibliometric} {Analysis}},
+  International Journal of Environmental Research and Public Health 19~(23)
+  (2022) 15881, number: 23 Publisher: Multidisciplinary Digital Publishing
+  Institute.
+\newblock \href {https://doi.org/10.3390/ijerph192315881}
+  {\path{doi:10.3390/ijerph192315881}}.
+\newline\urlprefix\url{https://www.mdpi.com/1660-4601/19/23/15881}
+
+\bibitem{auriel_fournier_refsplitr_2020}
+{Auriel Fournier}, {Matt Boone}, {Forrest Stevens}, {Emilio M. Bruna},
+  \href{https://github.com/ropensci/refsplitr}{refsplitr: author name
+  disambiguation, author georeferencing, and mapping of coauthorship networks
+  with {Web} of {Science} data.} (2020).
+\newline\urlprefix\url{https://github.com/ropensci/refsplitr}
+
+\bibitem{uk_ministry_of_defense_defence_2019}
+{UK Ministry of Defense},
+  \href{https://inaca.or.id/wp-content/uploads/2019/11/Def-Stan-91-091-Issue-11-Oct-2019-Turbine-Fuel-Kerosene-Type-Jet-A-1-NATO-CodeF-35-Joint-Service-Designation-AVTUR.pdf}{Defence
+  {Standard} 91-091: {Turbine} {Fuel}, {Kerosene} {Type}, {Jet} {A}-1; {NATO}
+  {Code}: {F}-35; {Joint} {Service} {Designation}: {AVTUR}} (Oct. 2019).
+\newline\urlprefix\url{https://inaca.or.id/wp-content/uploads/2019/11/Def-Stan-91-091-Issue-11-Oct-2019-Turbine-Fuel-Kerosene-Type-Jet-A-1-NATO-CodeF-35-Joint-Service-Designation-AVTUR.pdf}
+
+\bibitem{iata_factsheet_2023}
+{IATA},
+  \href{https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/}{Factsheet:
+  {CORSIA}} (May 2023).
+\newline\urlprefix\url{https://www.iata.org/en/iata-repository/pressroom/fact-sheets/fact-sheet---corsia/}
+
+\bibitem{oecd_oecd_2023}
+{OECD},
+  \href{https://www.oecd-ilibrary.org/science-and-technology/oecd-science-technology-and-innovation-outlook-2023_0b55736e-en}{{OECD}
+  {Science}, {Technology} and {Innovation} {Outlook} 2023: {Enabling}
+  {Transitions} in {Times} of {Disruption}} (Mar. 2023).
+\newblock \href {https://doi.org/10.1787/0b55736e-en}
+  {\path{doi:10.1787/0b55736e-en}}.
+\newline\urlprefix\url{https://www.oecd-ilibrary.org/science-and-technology/oecd-science-technology-and-innovation-outlook-2023_0b55736e-en}
+
+\bibitem{wang_heterogeneous_2020}
+Q.~Wang, S.~Li, Z.~Pisarenko,
+  \href{https://www.sciencedirect.com/science/article/pii/S0360544220314298}{Heterogeneous
+  effects of energy efficiency, oil price, environmental pressure, {R}\&{D}
+  investment, and policy on renewable energy -- evidence from the {G20}
+  countries}, Energy 209 (2020) 118322.
+\newblock \href {https://doi.org/10.1016/j.energy.2020.118322}
+  {\path{doi:10.1016/j.energy.2020.118322}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0360544220314298}
+
+\bibitem{zhang_catalytic_2016}
+X.~Zhang, H.~Lei, S.~Chen, J.~Wu,
+  \href{https://pubs.rsc.org/en/content/articlelanding/2016/gc/c6gc00911e}{Catalytic
+  co-pyrolysis of lignocellulosic biomass with polymers: a critical review},
+  Green Chemistry 18~(15) (2016) 4145--4169, publisher: The Royal Society of
+  Chemistry.
+\newblock \href {https://doi.org/10.1039/C6GC00911E}
+  {\path{doi:10.1039/C6GC00911E}}.
+\newline\urlprefix\url{https://pubs.rsc.org/en/content/articlelanding/2016/gc/c6gc00911e}
+
+\bibitem{wang_biomass-derived_2015}
+H.~Wang, H.~Ruan, H.~Pei, H.~Wang, X.~Chen, M.~P. Tucker, J.~R. Cort, B.~Yang,
+  \href{https://pubs.rsc.org/en/content/articlelanding/2015/gc/c5gc01534k}{Biomass-derived
+  lignin to jet fuel range hydrocarbons via aqueous phase hydrodeoxygenation},
+  Green Chemistry 17~(12) (2015) 5131--5135, publisher: The Royal Society of
+  Chemistry.
+\newblock \href {https://doi.org/10.1039/C5GC01534K}
+  {\path{doi:10.1039/C5GC01534K}}.
+\newline\urlprefix\url{https://pubs.rsc.org/en/content/articlelanding/2015/gc/c5gc01534k}
+
+\bibitem{zhang_enhancement_2016}
+X.~Zhang, H.~Lei, L.~Zhu, M.~Qian, X.~Zhu, J.~Wu, S.~Chen,
+  \href{https://www.sciencedirect.com/science/article/pii/S0306261916305219}{Enhancement
+  of jet fuel range alkanes from co-feeding of lignocellulosic biomass with
+  plastics via tandem catalytic conversions}, Applied Energy 173 (2016)
+  418--430.
+\newblock \href {https://doi.org/10.1016/j.apenergy.2016.04.071}
+  {\path{doi:10.1016/j.apenergy.2016.04.071}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0306261916305219}
+
+\bibitem{tanzil_evaluation_2022}
+A.~H. Tanzil, K.~Brandt, X.~Zhang, M.~Wolcott, E.~E. Silva~Lora, C.~Stockle,
+  M.~Garcia-Perez,
+  \href{https://www.sciencedirect.com/science/article/pii/S001623612200850X}{Evaluation
+  of bio-refinery alternatives to produce sustainable aviation fuels in a
+  sugarcane mill}, Fuel 321 (2022) 123992.
+\newblock \href {https://doi.org/10.1016/j.fuel.2022.123992}
+  {\path{doi:10.1016/j.fuel.2022.123992}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S001623612200850X}
+
+\bibitem{tanzil_production_2021}
+A.~H. Tanzil, K.~Brandt, X.~Zhang, M.~Wolcott, C.~Stockle, M.~Garcia-Perez,
+  \href{https://www.frontiersin.org/articles/10.3389/fenrg.2021.735661}{Production
+  of {Sustainable} {Aviation} {Fuels} in {Petroleum} {Refineries}: {Evaluation}
+  of {New} {Bio}-{Refinery} {Concepts}}, Frontiers in Energy Research 9 (2021).
+\newline\urlprefix\url{https://www.frontiersin.org/articles/10.3389/fenrg.2021.735661}
+
+\bibitem{deng_efficient_2016}
+Q.~Deng, J.~Xu, P.~Han, L.~Pan, L.~Wang, X.~Zhang, J.-J. Zou,
+  \href{https://www.sciencedirect.com/science/article/pii/S0378382016301187}{Efficient
+  synthesis of high-density aviation biofuel via solvent-free aldol
+  condensation of cyclic ketones and furanic aldehydes}, Fuel Processing
+  Technology 148 (2016) 361--366.
+\newblock \href {https://doi.org/10.1016/j.fuproc.2016.03.016}
+  {\path{doi:10.1016/j.fuproc.2016.03.016}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0378382016301187}
+
+\bibitem{wang_experimental_2022}
+J.~Wang, W.~Ding, X.~Gao, H.~Wang, W.~Li, Q.~Xu, X.~Zhong, Z.~Cheng, H.~Wang,
+  Z.~Wang, J.~Yang, L.~Zhao, B.~Yan, G.~Chen,
+  \href{https://www.sciencedirect.com/science/article/pii/S0010218022002905}{Experimental
+  and kinetic model studies on the pyrolysis of 2-furfuryl alcohol at two
+  reactors: {Flow} reactor and jet-stirred reactor}, Combustion and Flame 244
+  (2022) 112275.
+\newblock \href {https://doi.org/10.1016/j.combustflame.2022.112275}
+  {\path{doi:10.1016/j.combustflame.2022.112275}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0010218022002905}
+
+\bibitem{ma_co-upgrading_2018}
+W.~Ma, B.~Liu, R.~Zhang, T.~Gu, X.~Ji, L.~Zhong, G.~Chen, L.~Ma, Z.~Cheng,
+  X.~Li,
+  \href{https://www.sciencedirect.com/science/article/pii/S0306261918301612}{Co-upgrading
+  of raw bio-oil with kitchen waste oil through fluid catalytic cracking
+  ({FCC})}, Applied Energy 217 (2018) 233--240.
+\newblock \href {https://doi.org/10.1016/j.apenergy.2018.02.036}
+  {\path{doi:10.1016/j.apenergy.2018.02.036}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0306261918301612}
+
+\bibitem{hirsch_index_2005}
+J.~E. Hirsch, \href{http://arxiv.org/abs/physics/0508025}{An index to quantify
+  an individual's scientific research output}, Proceedings of the National
+  Academy of Sciences 102~(46) (2005) 16569--16572, 5772 citations (Crossref)
+  [2022-09-30] arXiv:physics/0508025.
+\newblock \href {https://doi.org/10.1073/pnas.0507655102}
+  {\path{doi:10.1073/pnas.0507655102}}.
+\newline\urlprefix\url{http://arxiv.org/abs/physics/0508025}
+
+\bibitem{dagaut_kinetics_2007}
+P.~Dagaut, S.~Gai¨l, \href{https://doi.org/10.1115/GT2007-27145}{Kinetics of
+  {Gas} {Turbine} {Liquid} {Fuels} {Combustion}: {Jet}-{A1} and
+  {Bio}-{Kerosene}}, Vol. Volume 2: Turbo Expo 2007 of Turbo {Expo}: {Power}
+  for {Land}, {Sea}, and {Air}, 2007, \_eprint:
+  https://asmedigitalcollection.asme.org/GT/proceedings-pdf/GT2007/47918/93/2676113/93\_1.pdf.
+\newblock \href {https://doi.org/10.1115/GT2007-27145}
+  {\path{doi:10.1115/GT2007-27145}}.
+\newline\urlprefix\url{https://doi.org/10.1115/GT2007-27145}
+
+\bibitem{mze-ahmed_kinetics_2014}
+A.~Mzé-Ahmed, P.~Dagaut, G.~Dayma, P.~Diévart,
+  \href{https://doi.org/10.1115/1.4028259}{Kinetics of {Oxidation} of a 100\%
+  {Gas}-to-{Liquid} {Synthetic} {Jet} {Fuel} and a {Mixture} {GtL}/1-{Hexanol}
+  in a {Jet}-{Stirred} {Reactor}: {Experimental} and {Modeling} {Study}},
+  Journal of Engineering for Gas Turbines and Power 137~(011503) (Aug. 2014).
+\newblock \href {https://doi.org/10.1115/1.4028259}
+  {\path{doi:10.1115/1.4028259}}.
+\newline\urlprefix\url{https://doi.org/10.1115/1.4028259}
+
+\bibitem{herbinet_jet-stirred_2013}
+O.~Herbinet, G.~Dayma,
+  \href{https://doi.org/10.1007/978-1-4471-5307-8_8}{Jet-{Stirred} {Reactors}},
+  in: F.~Battin-Leclerc, J.~M. Simmie, E.~Blurock (Eds.), Cleaner {Combustion}:
+  {Developing} {Detailed} {Chemical} {Kinetic} {Models}, Green {Energy} and
+  {Technology}, Springer, London, 2013, pp. 183--210.
+\newblock \href {https://doi.org/10.1007/978-1-4471-5307-8_8}
+  {\path{doi:10.1007/978-1-4471-5307-8_8}}.
+\newline\urlprefix\url{https://doi.org/10.1007/978-1-4471-5307-8_8}
+
+\bibitem{icao_carbon_2023}
+{ICAO},
+  \href{https://www.icao.int/environmental-protection/CORSIA/pages/default.aspx}{Carbon
+  {Offsetting} and {Reduction} {Scheme} for {International} {Aviation}
+  ({CORSIA})} (Jun. 2023).
+\newline\urlprefix\url{https://www.icao.int/environmental-protection/CORSIA/pages/default.aspx}
+
+\bibitem{bejan_fundamentals_2002}
+A.~Bejan,
+  \href{https://onlinelibrary.wiley.com/doi/abs/10.1002/er.804}{Fundamentals of
+  exergy analysis, entropy generation minimization, and the generation of flow
+  architecture}, International Journal of Energy Research 26~(7) (2002) 0--43,
+  \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/er.804.
+\newblock \href {https://doi.org/10.1002/er.804} {\path{doi:10.1002/er.804}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1002/er.804}
+
+\bibitem{hao_energy_2021}
+J.~Hao, J.~Xiao, G.~Song, Q.~Zhang,
+  \href{https://www.sciencedirect.com/science/article/pii/S2214157X21001696}{Energy
+  and exergy analysis of bio-jet fuel production from lignocellulosic biomass
+  via aqueous conversion}, Case Studies in Thermal Engineering 26 (2021)
+  101006.
+\newblock \href {https://doi.org/10.1016/j.csite.2021.101006}
+  {\path{doi:10.1016/j.csite.2021.101006}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S2214157X21001696}
+
+\bibitem{balli_turbofan_2021}
+O.~Balli, H.~Caliskan,
+  \href{https://www.sciencedirect.com/science/article/pii/S0360544221012792}{Turbofan
+  engine performances from aviation, thermodynamic and environmental
+  perspectives}, Energy 232 (2021) 121031.
+\newblock \href {https://doi.org/10.1016/j.energy.2021.121031}
+  {\path{doi:10.1016/j.energy.2021.121031}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0360544221012792}
+
+\bibitem{balli_thermodynamic_2021}
+O.~Balli, E.~Ozbek, S.~Ekici, A.~Midilli, T.~Hikmet~Karakoc,
+  \href{https://www.sciencedirect.com/science/article/pii/S0016236121015672}{Thermodynamic
+  comparison of {TF33} turbofan engine fueled by hydrogen in benchmark with
+  kerosene}, Fuel 306 (2021) 121686.
+\newblock \href {https://doi.org/10.1016/j.fuel.2021.121686}
+  {\path{doi:10.1016/j.fuel.2021.121686}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0016236121015672}
+
+\bibitem{sims_overview_2010}
+R.~E.~H. Sims, W.~Mabee, J.~N. Saddler, M.~Taylor,
+  \href{https://www.sciencedirect.com/science/article/pii/S0960852409015508}{An
+  overview of second generation biofuel technologies}, Bioresource Technology
+  101~(6) (2010) 1570--1580.
+\newblock \href {https://doi.org/10.1016/j.biortech.2009.11.046}
+  {\path{doi:10.1016/j.biortech.2009.11.046}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0960852409015508}
+
+\bibitem{yakovlieva_experimental_2023}
+A.~Yakovlieva, S.~Boichenko, V.~Boshkov, L.~Korba, M.~Hocko,
+  \href{https://journals.vilniustech.lt/index.php/Aviation/article/view/18564}{Experimental
+  study of physical-chemical properties of advanced alcohol-to-jet fuels},
+  Aviation 27~(1) (2023) 1--13, number: 1.
+\newblock \href {https://doi.org/10.3846/aviation.2023.18564}
+  {\path{doi:10.3846/aviation.2023.18564}}.
+\newline\urlprefix\url{https://journals.vilniustech.lt/index.php/Aviation/article/view/18564}
+
+\bibitem{starck_production_2016}
+L.~Starck, L.~Pidol, N.~Jeuland, T.~Chapus, P.~Bogers, J.~Bauldreay,
+  \href{https://ogst.ifpenergiesnouvelles.fr/articles/ogst/abs/2016/01/ogst120241/ogst120241.html}{Production
+  of {Hydroprocessed} {Esters} and {Fatty} {Acids} ({HEFA}) – {Optimisation}
+  of {Process} {Yield}}, Oil \& Gas Science and Technology – Revue d’IFP
+  Energies nouvelles 71~(1) (2016) 10, number: 1 Publisher: EDP Sciences.
+\newblock \href {https://doi.org/10.2516/ogst/2014007}
+  {\path{doi:10.2516/ogst/2014007}}.
+\newline\urlprefix\url{https://ogst.ifpenergiesnouvelles.fr/articles/ogst/abs/2016/01/ogst120241/ogst120241.html}
+
+\bibitem{enright_d7566_2023}
+C.~Enright,
+  \href{https://sn.astm.org/features/d7566-takes-flight-so11.html}{D7566
+  {Takes} {Flight} {\textbar} {ASTM} {Standardization} {News}} (May 2023).
+\newline\urlprefix\url{https://sn.astm.org/features/d7566-takes-flight-so11.html}
+
+\bibitem{monteiro_production_2022}
+R.~R.~C. Monteiro, I.~A. dos Santos, M.~R.~A. Arcanjo, C.~L. Cavalcante,
+  F.~M.~T. de~Luna, R.~Fernandez-Lafuente, R.~S. Vieira,
+  \href{https://www.mdpi.com/2073-4344/12/2/237}{Production of {Jet} {Biofuels}
+  by {Catalytic} {Hydroprocessing} of {Esters} and {Fatty} {Acids}: {A}
+  {Review}}, Catalysts 12~(2) (2022) 237, number: 2 Publisher:
+  Multidisciplinary Digital Publishing Institute.
+\newblock \href {https://doi.org/10.3390/catal12020237}
+  {\path{doi:10.3390/catal12020237}}.
+\newline\urlprefix\url{https://www.mdpi.com/2073-4344/12/2/237}
+
+\bibitem{doliente_bio-aviation_2020}
+S.~S. Doliente, A.~Narayan, J.~F.~D. Tapia, N.~J. Samsatli, Y.~Zhao,
+  S.~Samsatli,
+  \href{https://www.frontiersin.org/articles/10.3389/fenrg.2020.00110}{Bio-aviation
+  {Fuel}: {A} {Comprehensive} {Review} and {Analysis} of the {Supply} {Chain}
+  {Components}}, Frontiers in Energy Research 8 (2020).
+\newline\urlprefix\url{https://www.frontiersin.org/articles/10.3389/fenrg.2020.00110}
+
+\bibitem{huber_synthesis_2006}
+G.~W. Huber, S.~Iborra, A.~Corma,
+  \href{https://doi.org/10.1021/cr068360d}{Synthesis of {Transportation}
+  {Fuels} from {Biomass}: {Chemistry}, {Catalysts}, and {Engineering}},
+  Chemical Reviews 106~(9) (2006) 4044--4098, 5999 citations (Crossref)
+  [2022-12-02] Publisher: American Chemical Society.
+\newblock \href {https://doi.org/10.1021/cr068360d}
+  {\path{doi:10.1021/cr068360d}}.
+\newline\urlprefix\url{https://doi.org/10.1021/cr068360d}
+
+\bibitem{tiwari_environmental_2023}
+R.~Tiwari, R.~Mishra, A.~Choubey, S.~Kumar, A.~E. Atabani, I.~A. Badruddin,
+  T.~M.~Y. Khan,
+  \href{https://www.sciencedirect.com/science/article/pii/S0016236122028022}{Environmental
+  and economic issues for renewable production of bio-jet fuel: {A} global
+  prospective}, Fuel 332 (2023) 125978, 1 citations (Crossref) [2022-12-13].
+\newblock \href {https://doi.org/10.1016/j.fuel.2022.125978}
+  {\path{doi:10.1016/j.fuel.2022.125978}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0016236122028022}
+
+\bibitem{tzanetis_analysis_2017}
+K.~F. Tzanetis, J.~A. Posada, A.~Ramirez,
+  \href{https://www.sciencedirect.com/science/article/pii/S0960148117306080}{Analysis
+  of biomass hydrothermal liquefaction and biocrude-oil upgrading for renewable
+  jet fuel production: {The} impact of reaction conditions on production costs
+  and {GHG} emissions performance}, Renewable Energy 113 (2017) 1388--1398.
+\newblock \href {https://doi.org/10.1016/j.renene.2017.06.104}
+  {\path{doi:10.1016/j.renene.2017.06.104}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0960148117306080}
+
+\bibitem{marx_detecting_2014}
+W.~Marx, L.~Bornmann, A.~Barth, L.~Leydesdorff,
+  \href{https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.23089}{Detecting
+  the historical roots of research fields by reference publication year
+  spectroscopy ({RPYS})}, Journal of the Association for Information Science
+  and Technology 65~(4) (2014) 751--764, 103 citations (Crossref) [2022-09-30]
+  \_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/asi.23089.
+\newblock \href {https://doi.org/10.1002/asi.23089}
+  {\path{doi:10.1002/asi.23089}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1002/asi.23089}
+
+\bibitem{shonnard_camelina-derived_2010}
+D.~R. Shonnard, L.~Williams, T.~N. Kalnes,
+  \href{https://onlinelibrary.wiley.com/doi/abs/10.1002/ep.10461}{Camelina-derived
+  jet fuel and diesel: {Sustainable} advanced biofuels}, Environmental Progress
+  \& Sustainable Energy 29~(3) (2010) 382--392, \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/ep.10461.
+\newblock \href {https://doi.org/10.1002/ep.10461}
+  {\path{doi:10.1002/ep.10461}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1002/ep.10461}
+
+\bibitem{lee_transport_2010}
+D.~Lee, G.~Pitari, V.~Grewe, K.~Gierens, J.~Penner, A.~Petzold, M.~Prather,
+  U.~Schumann, A.~Bais, T.~Berntsen,
+  \href{https://linkinghub.elsevier.com/retrieve/pii/S1352231009004956}{Transport
+  impacts on atmosphere and climate: {Aviation}}, Atmospheric Environment
+  44~(37) (2010) 4678--4734.
+\newblock \href {https://doi.org/10.1016/j.atmosenv.2009.06.005}
+  {\path{doi:10.1016/j.atmosenv.2009.06.005}}.
+\newline\urlprefix\url{https://linkinghub.elsevier.com/retrieve/pii/S1352231009004956}
+
+\bibitem{rye_sustainability_2010}
+L.~Rye, S.~Blakey, C.~W. Wilson,
+  \href{https://pubs.rsc.org/en/content/articlelanding/2010/ee/b918197k}{Sustainability
+  of supply or the planet: a review of potential drop-in alternative aviation
+  fuels}, Energy \& Environmental Science 3~(1) (2010) 17--27, publisher: Royal
+  Society of Chemistry.
+\newblock \href {https://doi.org/10.1039/B918197K}
+  {\path{doi:10.1039/B918197K}}.
+\newline\urlprefix\url{https://pubs.rsc.org/en/content/articlelanding/2010/ee/b918197k}
+
+\bibitem{blakey_aviation_2011}
+S.~Blakey, L.~Rye, C.~W. Wilson,
+  \href{https://www.sciencedirect.com/science/article/pii/S1540748910003950}{Aviation
+  gas turbine alternative fuels: {A} review}, Proceedings of the Combustion
+  Institute 33~(2) (2011) 2863--2885.
+\newblock \href {https://doi.org/10.1016/j.proci.2010.09.011}
+  {\path{doi:10.1016/j.proci.2010.09.011}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S1540748910003950}
+
+\bibitem{agusdinata_life_2011}
+D.~B. Agusdinata, F.~Zhao, K.~Ileleji, D.~DeLaurentis,
+  \href{https://doi.org/10.1021/es202148g}{Life {Cycle} {Assessment} of
+  {Potential} {Biojet} {Fuel} {Production} in the {United} {States}},
+  Environmental Science \& Technology 45~(21) (2011) 9133--9143, publisher:
+  American Chemical Society.
+\newblock \href {https://doi.org/10.1021/es202148g}
+  {\path{doi:10.1021/es202148g}}.
+\newline\urlprefix\url{https://doi.org/10.1021/es202148g}
+
+\bibitem{corporan_chemical_2011}
+E.~Corporan, T.~Edwards, L.~Shafer, M.~J. DeWitt, C.~Klingshirn, S.~Zabarnick,
+  Z.~West, R.~Striebich, J.~Graham, J.~Klein,
+  \href{https://doi.org/10.1021/ef101520v}{Chemical, {Thermal} {Stability},
+  {Seal} {Swell}, and {Emissions} {Studies} of {Alternative} {Jet} {Fuels}},
+  Energy \& Fuels 25~(3) (2011) 955--966, publisher: American Chemical Society.
+\newblock \href {https://doi.org/10.1021/ef101520v}
+  {\path{doi:10.1021/ef101520v}}.
+\newline\urlprefix\url{https://doi.org/10.1021/ef101520v}
+
+\bibitem{lee_aviation_2009}
+D.~S. Lee, D.~W. Fahey, P.~M. Forster, P.~J. Newton, R.~C.~N. Wit, L.~L. Lim,
+  B.~Owen, R.~Sausen,
+  \href{https://www.sciencedirect.com/science/article/pii/S1352231009003574}{Aviation
+  and global climate change in the 21st century}, Atmospheric Environment
+  43~(22) (2009) 3520--3537.
+\newblock \href {https://doi.org/10.1016/j.atmosenv.2009.04.024}
+  {\path{doi:10.1016/j.atmosenv.2009.04.024}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S1352231009003574}
+
+\bibitem{nygren_aviation_2009}
+E.~Nygren, K.~Aleklett, M.~Höök,
+  \href{https://www.sciencedirect.com/science/article/pii/S0301421509003152}{Aviation
+  fuel and future oil production scenarios}, Energy Policy 37~(10) (2009)
+  4003--4010.
+\newblock \href {https://doi.org/10.1016/j.enpol.2009.04.048}
+  {\path{doi:10.1016/j.enpol.2009.04.048}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0301421509003152}
+
+\bibitem{kunkes_catalytic_2008}
+E.~L. Kunkes, D.~A. Simonetti, R.~M. West, J.~C. Serrano-Ruiz, C.~A. Gärtner,
+  J.~A. Dumesic,
+  \href{https://www.science.org/doi/abs/10.1126/science.1159210}{Catalytic
+  {Conversion} of {Biomass} to {Monofunctional} {Hydrocarbons} and {Targeted}
+  {Liquid}-{Fuel} {Classes}}, Science 322~(5900) (2008) 417--421, \_eprint:
+  https://www.science.org/doi/pdf/10.1126/science.1159210.
+\newblock \href {https://doi.org/10.1126/science.1159210}
+  {\path{doi:10.1126/science.1159210}}.
+\newline\urlprefix\url{https://www.science.org/doi/abs/10.1126/science.1159210}
+
+\bibitem{searchinger_use_2008}
+T.~Searchinger, R.~Heimlich, R.~A. Houghton, F.~Dong, A.~Elobeid, J.~Fabiosa,
+  S.~Tokgoz, D.~Hayes, T.-H. Yu,
+  \href{https://www.science.org/doi/abs/10.1126/science.1151861}{Use of
+  {U}.{S}. {Croplands} for {Biofuels} {Increases} {Greenhouse} {Gases}
+  {Through} {Emissions} from {Land}-{Use} {Change}}, Science 319~(5867) (2008)
+  1238--1240, \_eprint:
+  https://www.science.org/doi/pdf/10.1126/science.1151861.
+\newblock \href {https://doi.org/10.1126/science.1151861}
+  {\path{doi:10.1126/science.1151861}}.
+\newline\urlprefix\url{https://www.science.org/doi/abs/10.1126/science.1151861}
+
+\bibitem{fargione_land_2008}
+J.~Fargione, J.~Hill, D.~Tilman, S.~Polasky, P.~Hawthorne,
+  \href{https://www.science.org/doi/abs/10.1126/science.1152747}{Land
+  {Clearing} and the {Biofuel} {Carbon} {Debt}}, Science 319~(5867) (2008)
+  1235--1238, \_eprint:
+  https://www.science.org/doi/pdf/10.1126/science.1152747.
+\newblock \href {https://doi.org/10.1126/science.1152747}
+  {\path{doi:10.1126/science.1152747}}.
+\newline\urlprefix\url{https://www.science.org/doi/abs/10.1126/science.1152747}
+
+\bibitem{elliott_historical_2007}
+D.~C. Elliott, \href{https://doi.org/10.1021/ef070044u}{Historical
+  {Developments} in {Hydroprocessing} {Bio}-oils}, Energy \& Fuels 21~(3)
+  (2007) 1792--1815, publisher: American Chemical Society.
+\newblock \href {https://doi.org/10.1021/ef070044u}
+  {\path{doi:10.1021/ef070044u}}.
+\newline\urlprefix\url{https://doi.org/10.1021/ef070044u}
+
+\bibitem{huber_synergies_2007}
+G.~W. Huber, A.~Corma,
+  \href{https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.200604504}{Synergies
+  between {Bio}- and {Oil} {Refineries} for the {Production} of {Fuels} from
+  {Biomass}}, Angewandte Chemie International Edition 46~(38) (2007)
+  7184--7201, \_eprint:
+  https://onlinelibrary.wiley.com/doi/pdf/10.1002/anie.200604504.
+\newblock \href {https://doi.org/10.1002/anie.200604504}
+  {\path{doi:10.1002/anie.200604504}}.
+\newline\urlprefix\url{https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.200604504}
+
+\bibitem{huber_processing_2007}
+G.~W. Huber, P.~O’Connor, A.~Corma,
+  \href{https://www.sciencedirect.com/science/article/pii/S0926860X07004139}{Processing
+  biomass in conventional oil refineries: {Production} of high quality diesel
+  by hydrotreating vegetable oils in heavy vacuum oil mixtures}, Applied
+  Catalysis A: General 329 (2007) 120--129.
+\newblock \href {https://doi.org/10.1016/j.apcata.2007.07.002}
+  {\path{doi:10.1016/j.apcata.2007.07.002}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0926860X07004139}
+
+\bibitem{pielke_overview_2007}
+R.~A. Pielke, J.~Adegoke, A.~BeltraáN-Przekurat, C.~A. Hiemstra, J.~Lin, U.~S.
+  Nair, D.~Niyogi, T.~E. Nobis,
+  \href{https://doi.org/10.1111/j.1600-0889.2007.00251.x}{An overview of
+  regional land-use and land-cover impacts on rainfall}, Tellus B: Chemical and
+  Physical Meteorology 59~(3) (2007) 587--601, publisher: Taylor \& Francis
+  \_eprint: https://doi.org/10.1111/j.1600-0889.2007.00251.x.
+\newblock \href {https://doi.org/10.1111/j.1600-0889.2007.00251.x}
+  {\path{doi:10.1111/j.1600-0889.2007.00251.x}}.
+\newline\urlprefix\url{https://doi.org/10.1111/j.1600-0889.2007.00251.x}
+
+\bibitem{ancheyta_hydroprocessing_2005}
+J.~Ancheyta, M.~S. Rana, E.~Furimsky,
+  \href{https://www.sciencedirect.com/science/article/pii/S0920586105006103}{Hydroprocessing
+  of heavy petroleum feeds: {Tutorial}}, Catalysis Today 109~(1) (2005) 3--15.
+\newblock \href {https://doi.org/10.1016/j.cattod.2005.08.025}
+  {\path{doi:10.1016/j.cattod.2005.08.025}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0920586105006103}
+
+\bibitem{sonthalia_hydroprocessed_2019}
+A.~Sonthalia, N.~Kumar,
+  \href{https://www.sciencedirect.com/science/article/pii/S1743967117301526}{Hydroprocessed
+  vegetable oil as a fuel for transportation sector: {A} review}, Journal of
+  the Energy Institute 92~(1) (2019) 1--17.
+\newblock \href {https://doi.org/10.1016/j.joei.2017.10.008}
+  {\path{doi:10.1016/j.joei.2017.10.008}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S1743967117301526}
+
+\bibitem{knothe_lubricity_2005}
+G.~Knothe, K.~R. Steidley, \href{https://doi.org/10.1021/ef049684c}{Lubricity
+  of {Components} of {Biodiesel} and {Petrodiesel}. {The} {Origin} of
+  {Biodiesel} {Lubricity}}, Energy \& Fuels 19~(3) (2005) 1192--1200,
+  publisher: American Chemical Society.
+\newblock \href {https://doi.org/10.1021/ef049684c}
+  {\path{doi:10.1021/ef049684c}}.
+\newline\urlprefix\url{https://doi.org/10.1021/ef049684c}
+
+\bibitem{shahriar_current_2022}
+M.~F. Shahriar, A.~Khanal,
+  \href{https://www.sciencedirect.com/science/article/pii/S0016236122017471}{The
+  current techno-economic, environmental, policy status and perspectives of
+  sustainable aviation fuel ({SAF})}, Fuel 325 (2022) 124905.
+\newblock \href {https://doi.org/10.1016/j.fuel.2022.124905}
+  {\path{doi:10.1016/j.fuel.2022.124905}}.
+\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0016236122017471}
+
+\bibitem{belo_duarte_rafaelbeloduartesaf_bib_analysis_2023}
+R.~Belo~Duarte,
+  \href{https://github.com/rafaelbeloduarte/SAF_bib_analysis}{rafaelbeloduarte/{SAF}\_bib\_analysis:
+  {Supplementary} material for bibliometric analysis} (Nov. 2023).
+\newline\urlprefix\url{https://github.com/rafaelbeloduarte/SAF_bib_analysis}
+
+\end{thebibliography}
+
+
+\end{document}
+\endinput
+%%
+%% End of file `elsarticle-template-num.tex'.
